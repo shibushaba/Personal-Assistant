@@ -30,19 +30,19 @@ def update_chat(sender, message):
 def listen():
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
-        update_chat("System", "Listening...")
+        update_chat("Babu", "is hearing...")
         try:
             recognizer.adjust_for_ambient_noise(source)
             audio = recognizer.listen(source)
         except Exception as e:
-            update_chat("System", f"Microphone error: {e}")
+            update_chat("Babu", f"Microphone error: {e}")
             return ""
     try:
         command = recognizer.recognize_google(audio)
         update_chat("You", command)
         return command.lower()
     except:
-        speak("Sorry, I didn't catch that.")
+        speak("Sorry Boss, i did't got it.")
         return ""
 
 # === Command Handler ===
@@ -70,11 +70,11 @@ def handle_command(command):
         speak("Goodbye!")
         root.after(1000, root.destroy)
     else:
-        speak("Sorry, I can't do that offline.")
+        speak("Sorry Boss, I can't do that offline.")
 
 # === Task Management ===
 def add_task():
-    speak("What is the task?")
+    speak("Boss, What is the task?")
     task = listen()
     speak("At what time?")
     time = listen()
@@ -142,17 +142,17 @@ def launch_app_or_website(command):
             speak(f"Opening {site}")
             webbrowser.open(websites[site])
             return
-    speak("Application or website not recognized.")
+    speak("Sorry Boss, Application or website not recognized.")
 
 # === Music Playback ===
 def play_music():
     music_folder = "music"
     if not os.path.exists(music_folder):
-        speak("Music folder not found.")
+        speak("Sorry Boss, Music folder not found.")
         return
     files = [f for f in os.listdir(music_folder) if f.endswith(".mp3")]
     if not files:
-        speak("No music files found.")
+        speak("Boss, No music files found.")
         return
     speak("Playing music...")
     pygame.mixer.init()
@@ -172,13 +172,13 @@ def listen_and_respond():
 def launch_gui():
     global root, chat_area
     root = tk.Tk()
-    root.title("🎙️ Buddy – Offline Assistant")
+    root.title("🎙️ Babu – The One")
     root.geometry("520x650")
     root.config(bg="#2E3440")
 
     title = tk.Label(
         root,
-        text="🎙️ Buddy – Offline Assistant",
+        text="🎙️ Babu – The One",
         font=("Segoe UI", 22, "bold"),
         bg="#2E3440",
         fg="#88C0D0"
@@ -220,7 +220,7 @@ def launch_gui():
     mic_button.bind("<Enter>", on_enter)
     mic_button.bind("<Leave>", on_leave)
 
-    root.after(1000, lambda: speak("Buddy is ready, fully offline."))
+    root.after(1000, lambda: speak("Babu is ready, fully offline."))
     root.mainloop()
 
 # === Run the Assistant ===
