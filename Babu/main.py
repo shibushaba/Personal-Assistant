@@ -174,14 +174,14 @@ def launch_gui():
     root = tk.Tk()
     root.title("🎙️ Babu – The One")
     root.geometry("520x650")
-    root.config(bg="#2E3440")
+    root.config(bg="#402E2E")
 
     title = tk.Label(
         root,
         text="🎙️ Babu – The One",
         font=("Segoe UI", 22, "bold"),
-        bg="#2E3440",
-        fg="#88C0D0"
+        bg="#402E2E",
+        fg="#D08888"
     )
     title.pack(pady=(20, 10))
 
@@ -191,24 +191,24 @@ def launch_gui():
         width=58,
         height=25,
         font=("Segoe UI", 11),
-        bg="#3B4252",
-        fg="#ECEFF4",
-        insertbackground="#ECEFF4",
+        bg="#523B3B",
+        fg="#F4ECEC",
+        insertbackground="#F4ECEC",
         borderwidth=0
     )
     chat_area.pack(padx=20, pady=10)
     chat_area.configure(state='disabled')
 
-    def on_enter(e): mic_button.config(bg="#5E81AC")
-    def on_leave(e): mic_button.config(bg="#4C566A")
+    def on_enter(e): mic_button.config(bg="#AC5E5E")
+    def on_leave(e): mic_button.config(bg="#6A4C4C")
 
     mic_button = tk.Button(
         root,
         text="🎤 Speak",
         font=("Segoe UI", 14, "bold"),
-        bg="#4C566A",
+        bg="#6A4C4C",
         fg="white",
-        activebackground="#5E81AC",
+        activebackground="#AC5E5E",
         padx=30,
         pady=12,
         bd=0,
