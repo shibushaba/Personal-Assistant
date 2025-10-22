@@ -13,7 +13,7 @@ import subprocess
 engine = pyttsx3.init()
 
 def speak(text):
-    update_chat("Buddy", text)
+    update_chat("Babu", text)
     engine.say(text)
     engine.runAndWait()
 
@@ -30,7 +30,7 @@ def update_chat(sender, message):
 def listen():
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
-        update_chat("Babu", "is hearing...")
+        update_chat("Babu", "what's the matter...")
         try:
             recognizer.adjust_for_ambient_noise(source)
             audio = recognizer.listen(source)
