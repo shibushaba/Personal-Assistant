@@ -220,7 +220,7 @@ def launch_gui():
     mic_button.bind("<Enter>", on_enter)
     mic_button.bind("<Leave>", on_leave)
 
-    root.after(1000, lambda: speak("Babu is ready, fully offline."))
+    root.after(1000, lambda: speak("Welcome back Boss, how can i help you....."))
     root.mainloop()
 
 # === Run the Assistant ===
